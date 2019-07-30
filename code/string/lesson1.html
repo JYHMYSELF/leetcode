@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 557. 反转字符串中的单词 III
+        // 给定一个字符串，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。
+
+        // 示例 1:
+
+        // 输入: "Let's take LeetCode contest"
+        // 输出: "s'teL ekat edoCteeL tsetnoc"
+        // 解法一: 
+        let str = "Let's take LeetCode contest"
+        let arr = str.split(' ')
+        let result = arr.map(item => {
+            // let temp = item.split('').reverse().join('')
+            // return temp
+            // =>
+            return item.split('').reverse().join('')
+        })
+        console.log(result.join(' '))
+        // 总结:
+        // String.split()
+        // Array.join()
+        // Array.map()
+
+        // 解法二：
+        function reverseStringTwo(str) {
+            return str.split(' ').map(item => {
+                return item.split('').reverse().join('')
+            }).join(' ')
+        }
+        console.log(reverseString(str))
+
+        // 解法三：使用正则,split中可以使用正则表达式
+        function reverseStringThree(str) {
+            return str.split(/\s/g).map(item => {
+                return item.split('').reverse().join('')
+            }).join(' ')
+        }
+        console.log(reverseStringThree(str))
+
+        // 解法4：使用match匹配正则
+        function reverseStringFour(str) {
+            return str.match(/[\w']+/g).map(item => {
+                return item.split('').reverse().join('')
+            }).join(' ')
+        }
+        console.log(reverseStringFour(str))
+    </script>
+</body>
+
+</html>
